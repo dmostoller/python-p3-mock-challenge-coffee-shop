@@ -1,14 +1,24 @@
 
 class Order:
 
+    all = []
+
     def __init__(self, customer, coffee, price):
         self.customer = customer
         self.coffee = coffee
         self.price = price
 
+        self.customer._coffees.append(self.coffee)
+        self.customer._orders.append(self)
+
+        self.coffee._customers.append(self.customer)
+        self.coffee._orders.append(self)
+
+        Order.all.append(self)
+
     @property
     def price(self):
-        return self.average_price
+        return self._price
     
     @price.setter
     def price(self, new_price):
@@ -42,4 +52,5 @@ class Order:
             raise Exception("coffee must be and instance of Coffee class")
         
         
-    
+    def __repr__(self):
+        return f"{self.customer} {self.coffee} Price: ${self.price}"

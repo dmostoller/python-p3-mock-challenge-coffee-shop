@@ -20,6 +20,12 @@ order4 = Order(john, espresso, 2)
 order5 = Order(david, espresso, 2)
 order6 = Order(meg, latte, 6)
 order7 = Order(kelly, latte, 6)
-order8 = Order(david, mocha, 5)
+order8 = Order(david, espresso, 5)
 
-print(order3.customer.name)
+# print(espresso.num_orders())  -- not working yet
+# print(espresso.avg_price()) -- not working yet
+print(david.orders)
+david.create_order(latte, 8)
+print(david.orders)
+
+
